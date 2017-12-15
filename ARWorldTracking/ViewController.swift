@@ -58,6 +58,7 @@ class ViewController: UIViewController {
 //        let y = randomNumbers(firstNum: -0.3, secondNum: 0.3)
 //        let z = randomNumbers(firstNum: -0.3, secondNum: 0.3)
         node.position = SCNVector3(0.2, 0.3, -0.2)
+        node.eulerAngles = SCNVector3(Float(180.degreesToRadians), 0, 0)
         boxNode.position = SCNVector3(0, -0.05, 0)
         doorNode.position = SCNVector3(0, -0.02, 0.053)
 //        cylinderNode.position = SCNVector3(-0.3, 0.2, -0.3)
@@ -66,6 +67,27 @@ class ViewController: UIViewController {
         boxNode.addChildNode(doorNode)
 //        node.addChildNode(cylinderNode)
 //        self.sceneView.scene.rootNode.addChildNode(cylinderNode)
+        
+//        let pyramind = SCNNode(geometry: SCNPyramid(width: 0.1, height: 0.1, length: 0.1))
+//        pyramind.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+//        pyramind.position = SCNVector3(0, 0, -0.3)
+//        pyramind.eulerAngles = SCNVector3(Float(180.degreesToRadians), 0, 0)
+//        self.sceneView.scene.rootNode.addChildNode(pyramind)
+//        let node = SCNNode(geometry: SCNPlane(width: 0.3, height: 0.3))
+//        node.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+//        node.position = SCNVector3(0, 0, -0.3)
+//        node.eulerAngles = SCNVector3(Float(90.degreesToRadians), 0, 0)
+//        self.sceneView.scene.rootNode.addChildNode(node)
+//        let cylinderNode = SCNNode(geometry: SCNCylinder(radius: 0.1, height: 0.1))
+//        cylinderNode.geometry?.firstMaterial?.diffuse.contents = UIColor.blue
+//        cylinderNode.position = SCNVector3(0, 0, -0.3)
+//        cylinderNode.eulerAngles = SCNVector3(Float(90.degreesToRadians), 0, 0)
+//        self.sceneView.scene.rootNode.addChildNode(cylinderNode)
+//
+//        let pyramidNode = SCNNode(geometry: SCNPyramid(width: 0.1, height: 0.1, length: 0.1))
+//        pyramidNode.geometry?.firstMaterial?.diffuse.contents = UIColor.red
+//        pyramidNode.position = SCNVector3(0, 0, -0.5)
+//        cylinderNode.addChildNode(pyramidNode)
 
     }
     
@@ -84,5 +106,11 @@ class ViewController: UIViewController {
     func randomNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat {
         return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
     }
+}
+
+extension Int {
+    
+    var degreesToRadians: Double {return Double(self) * .pi/180}
+    
 }
 
